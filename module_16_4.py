@@ -28,7 +28,7 @@ async def post_user(username: Annotated[str, Path(min_length=2, max_length=15, e
         new_user = User(id=1, username=username, age=age)
         users.append(new_user)
     else:
-        user_id = len(users) + 1
+        user_id = users[-1].id + 1
         new_user = User(id=user_id, username=username, age=age)
         users.append(new_user)
     return new_user
